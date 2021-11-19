@@ -29,6 +29,10 @@ If it's not installed, use the <code>ansible-galaxy collection install</code> co
 You will also (as of September 2021) update the cvprac Python library
 
     > pip install cvprac --upgrade
+    
+And finally installe jmespath
+
+    > pip install jmespath 
 
 Now that the environment is ready, clone the ATD-Lab-Reset repo to the ATD VS-Code environment (Terminal). 
 
