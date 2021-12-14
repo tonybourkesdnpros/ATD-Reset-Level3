@@ -3,15 +3,15 @@ path: "{{lookup('env','PWD')}}"
 CVP_CONFIGLETS_OSPF:
   OSPF-Underlay-Leafs: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-Leafs.cfg')}}"
   OSPF-Underlay-Spines: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-Spines.cfg')}}"
-  OSPF-Underlay-borderleaf1-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf1-DC1.cfg')}}"
-  OSPF-Underlay-borderleaf2-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf2-DC1.cfg')}}"
-  OSPF-Underlay-leaf1-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf1-DC1.cfg')}}"
-  OSPF-Underlay-leaf2-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf2-DC1.cfg')}}"
-  OSPF-Underlay-leaf3-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf3-DC1.cfg')}}"
-  OSPF-Underlay-leaf4-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf4-DC1.cfg')}}"
-  OSPF-Underlay-spine1-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine1-DC1.cfg')}}"
-  OSPF-Underlay-spine2-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine2-DC1.cfg')}}"
-  OSPF-Underlay-spine3-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine3-DC1.cfg')}}"
+  OSPF-Underlay-borderleaf1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf1.cfg')}}"
+  OSPF-Underlay-borderleaf2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf2.cfg')}}"
+  OSPF-Underlay-leaf1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf1.cfg')}}"
+  OSPF-Underlay-leaf2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf2.cfg')}}"
+  OSPF-Underlay-leaf3: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf3.cfg')}}"
+  OSPF-Underlay-leaf4: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf4.cfg')}}"
+  OSPF-Underlay-spine1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine1.cfg')}}"
+  OSPF-Underlay-spine2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine2.cfg')}}"
+  OSPF-Underlay-spine3: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine3.cfg')}}"
   MLAG-Left: "{{lookup('file','{{path}}/configlets/MLAG-Left.cfg')}}"
   MLAG-Right: "{{lookup('file','{{path}}/configlets/MLAG-Right.cfg')}}"
   
@@ -34,7 +34,7 @@ CVP_DEVICES_OSPF:
       - 'ATD-INFRA'
       - 'leaf1-base'
       - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf1-DC1'
+      - 'OSPF-Underlay-leaf1'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf2'
     parentContainerName: 'Right-Leafs'
@@ -42,7 +42,7 @@ CVP_DEVICES_OSPF:
       - 'ATD-INFRA'
       - 'leaf2-base'
       - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf2-DC1'
+      - 'OSPF-Underlay-leaf2'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf3'
     parentContainerName: 'Left-Leafs'
@@ -50,7 +50,7 @@ CVP_DEVICES_OSPF:
       - 'ATD-INFRA'
       - 'leaf3-base'
       - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf3-DC1'
+      - 'OSPF-Underlay-leaf3'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf4'
     parentContainerName: 'Right-Leafs'
@@ -58,25 +58,25 @@ CVP_DEVICES_OSPF:
       - 'ATD-INFRA'
       - 'leaf4-base'
       - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf4-DC1'
+      - 'OSPF-Underlay-leaf4'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'spine1'
     parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine1-base'
-      - 'OSPF-Underlay-spine1-DC1'
+      - 'OSPF-Underlay-spine1'
       - 'OSPF-Underlay-Spines'
   - fqdn: 'spine2'
     parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine2-base'
-      - 'OSPF-Underlay-spine2-DC1'
+      - 'OSPF-Underlay-spine2'
       - 'OSPF-Underlay-Spines'
   - fqdn: 'spine3'
     parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine3-base'
-      - 'OSPF-Underlay-spine3-DC1'
+      - 'OSPF-Underlay-spine3'
