@@ -9,309 +9,75 @@ CVP_CONFIGLETS_OSPF:
   OSPF-Underlay-leaf2-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf2-DC1.cfg')}}"
   OSPF-Underlay-leaf3-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf3-DC1.cfg')}}"
   OSPF-Underlay-leaf4-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf4-DC1.cfg')}}"
-  OSPF-Underlay-borderleaf1-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf1-DC2.cfg')}}"
-  OSPF-Underlay-borderleaf2-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-borderleaf2-DC2.cfg')}}"
-  OSPF-Underlay-leaf1-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf1-DC2.cfg')}}"
-  OSPF-Underlay-leaf2-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf2-DC2.cfg')}}"
-  OSPF-Underlay-leaf3-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf3-DC2.cfg')}}"
-  OSPF-Underlay-leaf4-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-leaf4-DC2.cfg')}}"
-  OSPF-Underlay-DCI: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-DCI.cfg')}}"
   OSPF-Underlay-spine1-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine1-DC1.cfg')}}"
   OSPF-Underlay-spine2-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine2-DC1.cfg')}}"
   OSPF-Underlay-spine3-DC1: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine3-DC1.cfg')}}"
-  OSPF-Underlay-spine1-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine1-DC2.cfg')}}"
-  OSPF-Underlay-spine2-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine2-DC2.cfg')}}"
-  OSPF-Underlay-spine3-DC2: "{{lookup('file','{{path}}/configlets/OSPF/OSPF-Underlay-spine3-DC2.cfg')}}"
   MLAG-Left: "{{lookup('file','{{path}}/configlets/MLAG-Left.cfg')}}"
   MLAG-Right: "{{lookup('file','{{path}}/configlets/MLAG-Right.cfg')}}"
   
 
 CONTAINERS_OSPF:
-  DC1:
+  Spine:
       parentContainerName: Tenant
-  Spine-DC1:
-      parentContainerName: DC1
-      configlets: 
-        - OSPF-Underlay-Spines
-  Leaf-DC1:
-      parentContainerName: DC1
-      configlets: 
-        - OSPF-Underlay-Leafs
-  Left-DC1:
-      parentContainerName: Leaf-DC1
-  Right-DC1:
-      parentContainerName: Leaf-DC1
-  DC2:
+  Leaf:
       parentContainerName: Tenant
-  Spine-DC2:
-      parentContainerName: DC2
-      configlets: 
-        - OSPF-Underlay-Spines
-  Leaf-DC2:
-      parentContainerName: DC2
-      configlets: 
-        - OSPF-Underlay-Leafs
-  Left-DC2:
-      parentContainerName: Leaf-DC2
-  Right-DC2:
-      parentContainerName: Leaf-DC2
+  Left-Leafs:
+      parentContainerName: Leaf
+  Right-Leafs:
+      parentContainerName: Leaf
 
-CVP_DEVICES_:
-  - fqdn: 'leaf1-DC1'
-    parentContainerName: 'Left-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf1-DC1-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf1-DC1'
-  - fqdn: 'leaf2-DC1'
-    parentContainerName: 'Right-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf2-DC1-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf2-DC1'
-  - fqdn: 'leaf3-DC1'
-    parentContainerName: 'Left-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf3-DC1-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf3-DC1'
-  - fqdn: 'leaf4-DC1'
-    parentContainerName: 'Right-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf4-DC1-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf4-DC1'
-  - fqdn: 'borderleaf1-DC1'
-    parentContainerName: 'Left-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf1-DC1-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-borderleaf1-DC1'
-      - 'OSPF-Underlay-borderleafs-borderleaf1-DC1'
-  - fqdn: 'borderleaf2-DC1'
-    parentContainerName: 'Right-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf2-DC1-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-borderleaf2-DC1'
-      - 'OSPF-Underlay-borderleafs-borderleaf2-DC1'
-  - fqdn: 'spine1-DC1'
-    parentContainerName: 'Spine-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine1-DC1-BASE'
-      - 'OSPF-Underlay-spine1-DC1'
-  - fqdn: 'spine2-DC1'
-    parentContainerName: 'Spine-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine2-DC1-BASE'
-      - 'OSPF-Underlay-spine2-DC1'
-  - fqdn: 'spine3-DC1'
-    parentContainerName: 'Spine-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine3-DC1-BASE'
-      - 'OSPF-Underlay-spine3-DC1'      
-  - fqdn: 'leaf1-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf1-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf1-DC2'
-  - fqdn: 'leaf2-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf2-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf2-DC2'
-  - fqdn: 'leaf3-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf3-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf3-DC2'
-  - fqdn: 'leaf4-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf4-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf4-DC2'
-  - fqdn: 'borderleaf1-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf1-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-borderleaf1-DC2'
-      - 'OSPF-Underlay-borderleafs-borderleaf1-DC2'
-  - fqdn: 'borderleaf2-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf2-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-borderleaf2-DC2'
-      - 'OSPF-Underlay-borderleafs-borderleaf2-DC2'
-  - fqdn: 'spine1-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine1-DC2-BASE'
-      - 'OSPF-Underlay-spine1-DC2'
-  - fqdn: 'spine2-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine2-DC2-BASE'
-      - 'OSPF-Underlay-spine2-DC2'
-  - fqdn: 'spine3-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine3-DC2-BASE'
-      - 'OSPF-Underlay-spine3-DC2' 
-  - fqdn: 'DCI'
-    parentContainerName: 'DCI'
-    configlets:
-      - 'ATD-INFRA'
-      - 'DCI-BASE'
-      - 'OSPF-Underlay-DCI'
 
 CVP_DEVICES_OSPF:
-  - fqdn: 'leaf1-DC1'
+  - fqdn: 'leaf1'
     parentContainerName: 'Left-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'leaf1-DC1-BASE'
+      - 'leaf1-base'
       - 'MLAG-Left'
       - 'OSPF-Underlay-leaf1-DC1'
-  - fqdn: 'leaf2-DC1'
+      - 'OSPF-Underlay-Leafs'
+  - fqdn: 'leaf2'
     parentContainerName: 'Right-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'leaf2-DC1-BASE'
+      - 'leaf2-base'
       - 'MLAG-Right'
       - 'OSPF-Underlay-leaf2-DC1'
-  - fqdn: 'leaf3-DC1'
+      - 'OSPF-Underlay-Leafs'
+  - fqdn: 'leaf3'
     parentContainerName: 'Left-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'leaf3-DC1-BASE'
+      - 'leaf3-base'
       - 'MLAG-Left'
       - 'OSPF-Underlay-leaf3-DC1'
-  - fqdn: 'leaf4-DC1'
+      - 'OSPF-Underlay-Leafs'
+  - fqdn: 'leaf4'
     parentContainerName: 'Right-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'leaf4-DC1-BASE'
+      - 'leaf4-base'
       - 'MLAG-Right'
       - 'OSPF-Underlay-leaf4-DC1'
-  - fqdn: 'borderleaf1-DC1'
-    parentContainerName: 'Left-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf1-DC1-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-borderleaf1-DC1'
-  - fqdn: 'borderleaf2-DC1'
-    parentContainerName: 'Right-DC1'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf2-DC1-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-borderleaf2-DC1'
-  - fqdn: 'spine1-DC1'
+      - 'OSPF-Underlay-Leafs'
+  - fqdn: 'spine1'
     parentContainerName: 'Spine-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'spine1-DC1-BASE'
+      - 'spine1-base'
       - 'OSPF-Underlay-spine1-DC1'
-  - fqdn: 'spine2-DC1'
+      - 'OSPF-Underlay-Spines'
+  - fqdn: 'spine2'
     parentContainerName: 'Spine-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'spine2-DC1-BASE'
+      - 'spine2-base'
       - 'OSPF-Underlay-spine2-DC1'
-  - fqdn: 'spine3-DC1'
+      - 'OSPF-Underlay-Spines'
+  - fqdn: 'spine3'
     parentContainerName: 'Spine-DC1'
     configlets:
       - 'ATD-INFRA'
-      - 'spine3-DC1-BASE'
-      - 'OSPF-Underlay-spine3-DC1'      
-  - fqdn: 'leaf1-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf1-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf1-DC2'
-  - fqdn: 'leaf2-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf2-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf2-DC2'
-  - fqdn: 'leaf3-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf3-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-leaf3-DC2'
-  - fqdn: 'leaf4-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'leaf4-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-leaf4-DC2'
-  - fqdn: 'borderleaf1-DC2'
-    parentContainerName: 'Left-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf1-DC2-BASE'
-      - 'MLAG-Left'
-      - 'OSPF-Underlay-borderleaf1-DC2'
-  - fqdn: 'borderleaf2-DC2'
-    parentContainerName: 'Right-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'borderleaf2-DC2-BASE'
-      - 'MLAG-Right'
-      - 'OSPF-Underlay-borderleaf2-DC2'
-  - fqdn: 'spine1-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine1-DC2-BASE'
-      - 'OSPF-Underlay-spine1-DC2'
-  - fqdn: 'spine2-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine2-DC2-BASE'
-      - 'OSPF-Underlay-spine2-DC2'
-  - fqdn: 'spine3-DC2'
-    parentContainerName: 'Spine-DC2'
-    configlets:
-      - 'ATD-INFRA'
-      - 'spine3-DC2-BASE'
-      - 'OSPF-Underlay-spine3-DC2' 
-  - fqdn: 'DCI'
-    parentContainerName: 'DCI'
-    configlets:
-      - 'ATD-INFRA'
-      - 'DCI-BASE'
-      - 'OSPF-Underlay-DCI'
+      - 'spine3-base'
+      - 'OSPF-Underlay-spine3-DC1'   
+      - 'OSPF-Underlay-Spines'   
