@@ -29,7 +29,7 @@ CONTAINERS_OSPF:
 
 CVP_DEVICES_OSPF:
   - fqdn: 'leaf1'
-    parentContainerName: 'Left-DC1'
+    parentContainerName: 'Left-Leafs'
     configlets:
       - 'ATD-INFRA'
       - 'leaf1-base'
@@ -37,7 +37,7 @@ CVP_DEVICES_OSPF:
       - 'OSPF-Underlay-leaf1-DC1'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf2'
-    parentContainerName: 'Right-DC1'
+    parentContainerName: 'Right-Leafs'
     configlets:
       - 'ATD-INFRA'
       - 'leaf2-base'
@@ -45,7 +45,7 @@ CVP_DEVICES_OSPF:
       - 'OSPF-Underlay-leaf2-DC1'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf3'
-    parentContainerName: 'Left-DC1'
+    parentContainerName: 'Left-Leafs'
     configlets:
       - 'ATD-INFRA'
       - 'leaf3-base'
@@ -53,7 +53,7 @@ CVP_DEVICES_OSPF:
       - 'OSPF-Underlay-leaf3-DC1'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'leaf4'
-    parentContainerName: 'Right-DC1'
+    parentContainerName: 'Right-Leafs'
     configlets:
       - 'ATD-INFRA'
       - 'leaf4-base'
@@ -61,23 +61,22 @@ CVP_DEVICES_OSPF:
       - 'OSPF-Underlay-leaf4-DC1'
       - 'OSPF-Underlay-Leafs'
   - fqdn: 'spine1'
-    parentContainerName: 'Spine-DC1'
+    parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine1-base'
       - 'OSPF-Underlay-spine1-DC1'
       - 'OSPF-Underlay-Spines'
   - fqdn: 'spine2'
-    parentContainerName: 'Spine-DC1'
+    parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine2-base'
       - 'OSPF-Underlay-spine2-DC1'
       - 'OSPF-Underlay-Spines'
   - fqdn: 'spine3'
-    parentContainerName: 'Spine-DC1'
+    parentContainerName: 'Spine'
     configlets:
       - 'ATD-INFRA'
       - 'spine3-base'
-      - 'OSPF-Underlay-spine3-DC1'   
-      - 'OSPF-Underlay-Spines'   
+      - 'OSPF-Underlay-spine3-DC1'
