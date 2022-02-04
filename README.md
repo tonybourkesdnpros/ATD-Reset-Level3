@@ -1,7 +1,7 @@
 # ATD-Lab-Reset (Level 3)
 
 This is a collection of Ansible playbooks/configs, configlets (in the form of .cfg text files), and YAML files to configure the Arista ATD lab envioronment 
-for the Arista ACE Level 3 ertification course lab topology (as of July 2021). 
+for the Arista ACE Level 3 ertification course lab topology (as of Feb 2022). 
 
 This will **only** work on the ATD Level 3 labs but you can modidfy the YAML files and playbooks to suit other environments. 
 
