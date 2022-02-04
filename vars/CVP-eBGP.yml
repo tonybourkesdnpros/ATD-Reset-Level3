@@ -19,28 +19,20 @@ CVP_CONFIGLETS_EVPN:
   leaf4_EVPN_underlay: "{{lookup('file','{{path}}/configlets/eBGP-VXLAN/leaf4/leaf4_EVPN_underlay.cfg')}}"
   leaf4_interface: "{{lookup('file','{{path}}/configlets/eBGP-VXLAN/leaf4/leaf4_interface.cfg')}}"
   leaf4_VXLAN: "{{lookup('file','{{path}}/configlets/eBGP-VXLAN/leaf4/leaf4_VXLAN.cfg')}}"
+  MLAG-Left: "{{lookup('file','{{path}}/configlets/MLAG-Left.cfg')}}"
+  MLAG-Right: "{{lookup('file','{{path}}/configlets/MLAG-Right.cfg')}}"
 
-CONTAINERS_eBGP:
-  DC1:
+
+CONTAINERS_EVPN:
+
+  Spine:
       parentContainerName: Tenant
-  Spine-DC1:
-      parentContainerName: DC1
-  Leaf-DC1:
-      parentContainerName: DC1
-  Left-DC1:
-      parentContainerName: Leaf-DC1
-  Right-DC1:
-      parentContainerName: Leaf-DC1
-  DC2:
+  Leaf:
       parentContainerName: Tenant
-  Spine-DC2:
-      parentContainerName: DC2
-  Leaf-DC2:
-      parentContainerName: DC2
-  Left-DC2:
-      parentContainerName: Leaf-DC2
-  Right-DC2:
-      parentContainerName: Leaf-DC2
+  Borderleaf:
+      parentContainerName: Tenant
+  Hosts:
+      parentContainerName: Tenant
 
 CVP_DEVICES_EVPN:
   - fqdn: 'spine1'

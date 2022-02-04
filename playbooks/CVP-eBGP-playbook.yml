@@ -11,14 +11,14 @@
   tasks:
     - name: Upload Configlets for eBGP Underlay
       arista.cvp.cv_configlet_v3:
-        configlets: "{{ CVP_CONFIGLETS_eBGP }}"
+        configlets: "{{ CVP_CONFIGLETS_EVPN }}"
         state: present 
 
     - name: "Build Container topology"
       arista.cvp.cv_container_v3:
-        topology: "{{CONTAINERS_eBGP}}"
+        topology: "{{CONTAINERS_EVPN}}"
     
     - name: "Apply configlets for eBGP-based Underlay"
       arista.cvp.cv_device_v3:
-        devices: "{{ CVP_DEVICES_eBGP }}"
+        devices: "{{ CVP_DEVICES_EVPN }}"
         state: present
