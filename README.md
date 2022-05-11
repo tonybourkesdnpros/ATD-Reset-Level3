@@ -23,7 +23,7 @@ First, make sure that the arista.cvp collection is installed. (You may need to d
 
 If it's not installed, use the <code>ansible-galaxy collection install</code> command. 
 
-    > ansible-galaxy collection install arista.cvp
+    > ansible-galaxy collection install arista.cvp:==3.2.0
 
 Same for: 
 
