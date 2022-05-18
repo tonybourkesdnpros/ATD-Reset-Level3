@@ -16,53 +16,27 @@ This does **not** create the change control or execute the change control. At th
 
 ## Getting Started
 
-First, make sure that the arista.cvp collection is installed. (You may need to do this every time the lab environment starts up.)
-
-    > ansible-galaxy collection list | grep cvp
-    arista.cvp 3.1.1  
-
-If it's not installed, use the <code>ansible-galaxy collection install</code> command. 
+The installed version of Arista.cvp (3.3.1) needs to be downgraded to 3.3.0, so run the following command to do so: 
 
     > ansible-galaxy collection install arista.cvp:==3.2.0
 
-Same for: 
-
-    > ansible.netcommon
-    > arista.eos
-    > arista.cvp
-    
-You will also (as of September 2021) update the cvprac Python library
-
-    > pip install cvprac --upgrade
-    
 Now that the environment is ready, clone the ATD-Lab-Reset repo to the ATD VS-Code environment (Terminal). 
 
-    > git clone https://github.com/tonybourkesdnpros/Arista-Level3-Reset
+    > git clone https://github.com/tonybourkesdnpros/ATD-Reset-Level3.git
     
-This will create a new directory called Arista-Level3-Reset.
+This will create a new directory called ATD-Reset-Level3.
 
 Edit the inventory.yml file to reflect the password for your particular enviroment: 
 
 <code>           ansible_password: aristaXXXX</code>
 
-## The Playbooks
-
-There are currently three different Ansible playbooks: 
-
-* CVP-default.yml
-* CVP-eBGP.yml
-
 ### CVP-default.yml
 
 This playbook resets the lab to the default container topology and all devices to the default configlets. It **does not** delete any configlets that have been uploaded or added in other ways. 
 
-### CVP-eBGP.yml
+To run this playbook, use the following command: 
 
-This playbook configures the lab with an eBGP-based underlay that encompasses DC1 and DC2, along with the configuration for the DCI switch to connect them. It doesn't have the MP-BGP overlay or any Tenant networks. 
-
-## The Vars Files
-
-The vars file contains the configlet locations, the container topology, and the configlet to device associations, all described in YAML. 
+     > ansible-playbook playbooks/CVP-lab-reset.yml
 
 
     
