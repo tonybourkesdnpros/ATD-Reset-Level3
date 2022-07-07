@@ -16,9 +16,9 @@ This does **not** create the change control or execute the change control. At th
 
 ## Getting Started
 
-The installed version of Arista.cvp (3.3.1) needs to be downgraded to 3.3.0, so run the following command to do so: 
+The installed version of Arista.cvp needs to be re-installed: 
 
-    > ansible-galaxy collection install arista.cvp:==3.2.0
+    > ansible-galaxy collection install arista.cvp --force
 
 Now that the environment is ready, clone the ATD-Lab-Reset repo to the ATD VS-Code environment (Terminal). 
 
