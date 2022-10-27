@@ -1,0 +1,24 @@
+---
+- name: Playbook for uploading and applying configlets to build an ATD-based eBGP VXLAN underlay
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  vars: 
+    path: "{{lookup('env','PWD')}}"
+  vars_files: 
+     -  ../vars/CVP-OSPF.yml
+   
+  tasks:
+    - name: Upload Configlets for eBGP Underlay
+      arista.cvp.cv_configlet_v3:
+        configlets: "{{ CVP_CONFIGLETS_OSPF }}"
+        state: present 
+
+    - name: "Build Container topology"
+      arista.cvp.cv_container_v3:
+        topology: "{{CONTAINERS_OSPF}}"
+    
+    - name: "Apply configlets for eBGP-based Underlay"
+      arista.cvp.cv_device_v3:
+        devices: "{{ CVP_DEVICES_OSPF }}"
+        state: present
